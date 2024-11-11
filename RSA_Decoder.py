@@ -14,8 +14,7 @@ def mod_inverse(e,phi):
     for d in range (1,phi):
         if (d*e)%phi ==1:
             return d
-        else:
-            return None
+    return None
 
 #The below finds the two prime factors a and b       
 def factorize(n):
@@ -31,6 +30,7 @@ def rsa_decrypt(c,e,n):
     if not p or not q:
         return "Unable to factorize n"
     
+    
     #We will need a function to calculate the phi of n
     phi=(p-1)*(q-1)
     #We will need a function to calculate the mod inverse
@@ -40,6 +40,11 @@ def rsa_decrypt(c,e,n):
     
     message=pow(c,d,n)
     return message
+ciphertext=1648
+e=43
+n=2117
 
 decrypt_message=rsa_decrypt(ciphertext,e,n)
 print("Decrypted Message: ", decrypt_message)
+
+#Password 11264267153
